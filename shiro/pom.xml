@@ -35,12 +35,12 @@
             <version>4.01</version>
         </dependency>
         <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>4.1</version>
-            <scope>compile</scope>
+        	<groupId>org.antlr</groupId>
+        	<artifactId>antlr4-runtime</artifactId>
+        	<version>4.1</version>
         </dependency>
     </dependencies>
+    
     <build>
 
         <plugins>
@@ -63,7 +63,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.7</version>
+                <version>1.8</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -89,10 +89,36 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+            <!--This plugin's configuration is used to store Eclipse m2e settings 
+              only. It has no influence on the Maven build itself. -->
+            <plugin>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
+              <configuration>
+                   <lifecycleMappingMetadata>
+                  <pluginExecutions>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.antlr</groupId>
+                        <artifactId>antlr4-maven-plugin</artifactId>
+                        <versionRange>[4.0,)</versionRange>
+                        <goals>
+                          <goal>antlr4</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <execute></execute>
+                      </action>
+                    </pluginExecution>
+                  </pluginExecutions>
+                </lifecycleMappingMetadata>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
     </build>
-
-
-    
-   
- 
 </project>
